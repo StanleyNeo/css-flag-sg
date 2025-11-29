@@ -1,99 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
 
-==================================================
-TASK 4: Recommender System Evaluation
-==================================================
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Flag Project</title>
+  <h2>The Singapore Flag</h2>
+  <style>
+body {
+    background-color: #efefef;
+    font-weight: 300;
+    font-family: Arial, sans-serif;
+    padding:15px;
+}
 
-4a) Implementing Evaluation Metrics
+#sg_flag {
+    background-color: #fff;
+    width: 500px;
+    height: 333px;
+}
 
-4b) Testing Recommender Performance
-Splitting data into train and test sets...
-Working with subset: 100 users, 200 movies
-Non-zero ratings in subset: 1131
-Training set: 100 users, 918 ratings
-Test set: 100 users, 213 ratings
+#horizontal_red {
+    background: #EF4135;
+    height: 50%;
+    width: 100%;
+    position: relative;
+}
 
-Evaluating KNN Recommender...
-Training KNN model...
-Making KNN predictions...
-KNN: Found 90 test ratings to evaluate
-KNN RMSE: 2.4431
+#crescent {
+    width: 125px;
+    height: 125px;
+    background: #fff;
+    -webkit-border-radius: 62px;
+    border-radius: 62px;
+    position: absolute;
+    left: 45px;
+    top: 21px;
+    z-index: 1;
+}
 
-Evaluating Item-Based Recommender...
-Training Item-Based model...
-Making Item-Based predictions...
-Item-Based: Found 84 test ratings to evaluate
-Item-Based RMSE: 1.7156
+#overlay_crescent {
+    width: 125px;
+    height: 125px;
+    background: #EF4135;
+    -webkit-border-radius: 62px;
+    border-radius: 62px;
+    position: absolute;
+    left: 73px;
+    top: 21px;
+    z-index: 10;
+}
 
-==================================================
-PERFORMANCE COMPARISON
-==================================================
-KNN Collaborative Filtering RMSE: 2.4431
-Item-Based Collaborative Filtering RMSE: 1.7156
-Item-Based approach performs better (lower RMSE)
+.star {
+    margin: 10px 0;
+    position: absolute;
+    display: block;
+    color: #fff;
+    width: 0px;
+    height: 0px;
+    border-right: 20px solid transparent;
+    border-bottom: 14px  solid #fff;
+    border-left: 20px solid transparent;
+    transform: rotate(35deg);
+    z-index: 20;
+}
 
-Sample Predictions from KNN:
-Sample 1: Actual=4.0, Predicted=2.00, Error=2.00
-Sample 2: Actual=4.0, Predicted=2.88, Error=1.12
-Sample 3: Actual=3.0, Predicted=2.25, Error=0.75
-Sample 4: Actual=3.0, Predicted=1.25, Error=1.75
-Sample 5: Actual=4.0, Predicted=3.25, Error=0.75
+.star:before {
+    border-bottom: 16px solid #fff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -9px;
+    left: -12px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
 
-Sample Predictions from Item-Based:
-Sample 1: Actual=4.0, Predicted=5.00, Error=1.00
-Sample 2: Actual=3.0, Predicted=2.54, Error=0.46
-Sample 3: Actual=3.0, Predicted=4.65, Error=1.65
-Sample 4: Actual=4.0, Predicted=5.00, Error=1.00
-Sample 5: Actual=2.0, Predicted=5.00, Error=3.00
+.star:after {
+    position: absolute;
+    display: block;
+    color: #fff;
+    top: 0px;
+    left: -21px;
+    width: 0px;
+    height: 0px;
+    border-right: 20px solid transparent;
+    border-bottom: 14px solid #fff;
+    border-left: 20px solid transparent;
+    transform: rotate(-70deg);
+    content: '';
+}
 
-4c) Comprehensive Analysis
+#star_top {
+    left: 128px;
+    top: 33px;
+}
 
-==================================================
-COMPREHENSIVE ANALYSIS
-==================================================
-Additional Metrics:
-KNN Mean Absolute Error (MAE): 2.1653
-Item-Based Mean Absolute Error (MAE): 1.3594
-KNN Coverage: 42.3%
-Item-Based Coverage: 39.4%
+#star_mir {
+    left: 162px;
+    top: 58px;
+}
 
-KEY FINDINGS:
+#star_bor {
+    left: 149px;
+    top: 97px;
+}
 
-1. MATRIX SPARSITY:
-   - Original matrix sparsity: 98.30%
-   - High sparsity is the main challenge for collaborative filtering
+#star_bol {
+    left: 107px;
+    top: 97px;
+}
 
-2. RECOMMENDATION PERFORMANCE:
-   - KNN RMSE: 2.4431
-   - Item-Based RMSE: 1.7156
-   - Lower values indicate better prediction accuracy
+#star_mil {
+    left: 95px;
+    top: 58px;
+}
 
-3. PRACTICAL INSIGHTS:
-   - Both methods struggle with extreme sparsity
-   - Item-based approach often handles cold-start better
-   - KNN can be more accurate when sufficient data exists
+    .description {
+      max-width: 500px;
+      text-align: center;
+      color: #555;
+      line-height: 1.6;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-4. RECOMMENDATIONS:
-   - Consider hybrid approaches combining both methods
-   - Matrix factorization could improve performance
-   - Content-based features would help with cold-start
-   - Regularization techniques needed for sparse data
+    .description p {
+      margin: 10px 0;
+    }
+
+    .symbolism {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .symbolism h3 {
+      color: #EF4135;
+      margin-bottom: 10px;
+    }
+
+    .symbolism ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+.symbolism li {
+  margin-bottom: 8px;
+}
 
 
-DATASET OVERVIEW:
-Total users in full dataset: 610
-Total movies in full dataset: 9724
-Total ratings: 100836
-Average ratings per user: 165.3
-Average ratings per movie: 10.4
 
-RATING DISTRIBUTION:
-Rating 0.5: 1370 ratings (1.4%)
-Rating 1.0: 2811 ratings (2.8%)
-Rating 1.5: 1791 ratings (1.8%)
-Rating 2.0: 7551 ratings (7.5%)
-Rating 2.5: 5550 ratings (5.5%)
-Rating 3.0: 20047 ratings (19.9%)
-Rating 3.5: 13136 ratings (13.0%)
-Rating 4.0: 26818 ratings (26.6%)
-Rating 4.5: 8551 ratings (8.5%)
-Rating 5.0: 13211 ratings (13.1%)
+  </style>
+</head>
+<div id="sg_flag">
+  <div id="horizontal_red">
+    <div id="crescent"></div>
+    <div id="overlay_crescent"></div>
+    
+    <div id="star_top" class="star"></div>
+    <div id="star_mir" class="star"></div>
+    <div id="star_bor" class="star"></div>
+    <div id="star_bol" class="star"></div>
+    <div id="star_mil" class="star"></div>
+  </div>
+</div>
+<!-- 
+  IMPORTANT! Do not change any HTML
+Don't add any classes/ids/elements 
+Use what you know about combining selectors 
+and CSS specificity instead.
+Hint 1: The flag is 900px by 600px and the circle is 200px by 200px.
+Hint 2: You can use CSS inspection to get the colors from
+https://appbrewery.github.io/flag-of-laos/
+-->
+
+<body>
+
+<div class="description">
+
+    <p>The Flag of Singapore (CSS Flag)</p>
+
+    <p>The flag of Singapore consists of two horizontal bands: red on top and white on the bottom.</p>
+    <p>On the red band, there is a white crescent moon and five white stars arranged in a circle.</p>
+    
+    <div class="symbolism">
+      <h3>Symbolism:</h3>
+      <ul>
+        <li><strong>Red:</strong> Universal brotherhood and equality of man</li>
+        <li><strong>White:</strong> Pervading and everlasting purity and virtue</li>
+        <li><strong>Crescent Moon:</strong> A young nation on the rise</li>
+        <li><strong>Five Stars:</strong> Democracy, peace, progress, justice, and equality</li>
+      </ul>
+    </div>
+  </div>
+    </div>
+  </div>
+</body>
+
+</html>
